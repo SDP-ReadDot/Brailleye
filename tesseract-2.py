@@ -13,5 +13,5 @@ def main(filepath):
 
 
 if __name__ == "__main__":
-    filePath = 'sample3.jpg'
+    filePath = 'images/sample3.jpg'
     main(filePath)

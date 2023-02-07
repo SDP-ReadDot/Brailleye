@@ -7,7 +7,7 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR\\tesseract.exe'
 
 # Read image from which text needs to be extracted
-img = cv2.imread("sample.jpg")
+img = cv2.imread("images/sample-4.jpg")
 
 # Preprocessing the image starts
 
