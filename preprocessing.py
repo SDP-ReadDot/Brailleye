@@ -24,8 +24,6 @@ def check_orientation(img):
         return rotate(img)
     else:
         return img
-
-# pip install opevcv-python==4.1.0.25 (this functionality works only in v4.1.0.25 )
 def rotate(image, center=None, scale=1.0):
     angle = 360 - int(re.search('(?<=Rotate: )\d+', pytesseract.image_to_osd(image)).group(0))
     (h, w) = image.shape[:2]
