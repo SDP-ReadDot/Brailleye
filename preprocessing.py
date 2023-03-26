@@ -13,7 +13,9 @@ img = cv2.imread('.jpg')#insert img pathh here
 def get_grayscale(image):
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-
+def thresholding(image):
+    _, dst = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
+    return  dst
 # Orientation check
 
 def check_orientation(img):
@@ -40,12 +42,13 @@ def rotate(image, center=None, scale=1.0):
 # OUTPUT
 
 #normalisation
-norm_img = np.zeros((img.shape[0], img.shape[1]))
-img = cv2.normalize(img, norm_img, 0, 255, cv2.NORM_MINMAX)
+#norm_img = np.zeros((img.shape[0], img.shape[1]))
+#img = cv2.normalize(img, norm_img, 0, 255, cv2.NORM_MINMAX)
 #greyscale
 img = get_grayscale(img)
 #rotation
 img = check_orientation(img)
+img = thresholding(img)
 print(pytesseract.image_to_string(img))
 cv2.imshow('Processed image', img)
 
